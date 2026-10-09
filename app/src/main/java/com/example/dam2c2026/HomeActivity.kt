@@ -1,5 +1,6 @@
 package com.example.dam2c2026
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -23,6 +24,8 @@ class HomeActivity : AppCompatActivity() {
                 .setMessage("¿Desea comenzar la inscripción?")
                 .setPositiveButton("Continuar"){_, _, ->
                     Toast.makeText(this, "Redirigiendo a la pantalla de inscripción", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, AltaSocioActivity::class.java)
+                    startActivity(intent)
                 }
                 .setNegativeButton("Cancelar", null)
                 .show()

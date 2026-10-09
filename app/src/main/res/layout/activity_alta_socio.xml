@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nuevo socio"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="30dp" />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre y apellido"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/txtDni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DNI"
+        android:inputType="number"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btnGuardarSocio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar socio" />
+
+</LinearLayout>

@@ -28,19 +28,11 @@ class MainActivity : AppCompatActivity() {
 
             if (usuario.isEmpty() || password.isEmpty()) {
 
-                Toast.makeText(
-                    this,
-                    "Complete todos los campos",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show()
 
             } else {
 
-                Toast.makeText(
-                    this,
-                    "¡Bienvenido!",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_LONG).show()
 
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
