@@ -17,10 +17,12 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var rvSocios: RecyclerView
     private lateinit var txtSinSocios: TextView
+    private lateinit var dbHelper: SocioDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        dbHelper = SocioDBHelper(this)
 
         val cardInscribirSocio = findViewById<LinearLayout>(R.id.cardInscribirSocio)
 
@@ -50,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun cargarSocios(){
-        val socios = Datos.socios.toList()
+        val socios = dbHelper.obtenerSocios()
 
         rvSocios.adapter = SocioAdapter(socios)
 

@@ -31,14 +31,18 @@ class AltaSocioActivity : AppCompatActivity() {
                 Toast.makeText(this, "Ingrese un mail válido", Toast.LENGTH_SHORT).show()
             } else{
                 val socio = Socio(nombre = nombre, dni = dni, email = email)
-                Datos.socios.add(socio)
-                Log.d("SOCIO", socio.toString())
 
-                finish()
+                val dbHelper = SocioDBHelper(this)
+                val resultado = dbHelper.agregarSocio(socio)
+
+                if(resultado != -1L){
+                    Toast.makeText(this, "Socio creado", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else{
+                    Toast.makeText(this, "Error al guardar socio", Toast.LENGTH_SHORT).show()
+                }
             }
 
         }
-
-
     }
 }
