@@ -54,7 +54,9 @@ class HomeActivity : AppCompatActivity() {
     private fun cargarSocios(){
         val socios = dbHelper.obtenerSocios()
 
-        rvSocios.adapter = SocioAdapter(socios)
+        rvSocios.adapter = SocioAdapter(socios, dbHelper) {
+            cargarSocios()
+        }
 
         if(socios.isEmpty()){
             txtSinSocios.visibility = View.VISIBLE

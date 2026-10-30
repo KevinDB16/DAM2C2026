@@ -38,20 +38,28 @@ class SocioDBHelper(context: Context): SQLiteOpenHelper(context, "Club.db", null
         val lista = mutableListOf<Socio>()
         val db = readableDatabase
 
-        val cursor = db.rawQuery("SELECT nombre, dni, email FROM socios ORDER BY id DESC", null)
+        val cursor = db.rawQuery("SELECT id, nombre, dni, email FROM socios ORDER BY id DESC", null)
 
         cursor.use{
             while(it.moveToNext()){
                 lista.add(Socio(
-                    nombre = it.getString(0),
-                    dni = it.getString(1),
-                    email = it.getString(2)
+                    id = it.getInt(0),
+                    nombre = it.getString(1),
+                    dni = it.getString(2),
+                    email = it.getString(3)
                     )
                 )
             }
             db.close()
             return lista
         }
+    }
+
+    fun eliminarSocio(id: Int): Int {
+        val db = writableDatabase
+        val resultado = db.delete("socios", "id = ?", arrayOf(id.toString()))
+        db.close()
+        return resultado
     }
 
 }
